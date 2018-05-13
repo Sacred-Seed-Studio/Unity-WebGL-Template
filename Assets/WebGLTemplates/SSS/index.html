@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>%UNITY_WEB_NAME% | Sacred Seed Studio</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" contnet="%UNITY_WEB_NAME% is a WebGL game playable in modern desktop web browsers">
+
+  <style>
+    body {
+      background: #141F26;
+      color: #DADBE8;
+      font-family: Arial, Helvetica, sans-serif
+    }
+  
+    a {
+      color: #188fb3;
+      text-decoration: none;
+    }
+  
+    h1 {
+      margin: 0.5rem 0;
+    }
+  
+    .game {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  
+    #gameContainer {
+      width: %UNITY_WIDTH%px;
+      height: %UNITY_HEIGHT%px;
+    }
+  
+    footer {
+      margin: 0.3rem 0;
+    }
+  
+    .message {
+      float: left;
+      line-height: 35px;
+      vertical-align: 35px;
+    }
+  
+    .fullscreen {
+      float: right;
+      height: 35px;
+    }
+  
+    .fullscreen svg {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+    }
+  
+    .fullscreen svg g path {
+      fill: #DADBE8;
+    }
+
+    #loading {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(50% - 32px);
+      bottom: 0;
+      text-align: center;
+    }
+
+    .lds-ripple {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+    .lds-ripple div {
+      position: absolute;
+      border: 4px solid #fff;
+      opacity: 1;
+      border-radius: 50%;
+      animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+    .lds-ripple div:nth-child(2) {
+      animation-delay: -0.5s;
+    }
+    @keyframes lds-ripple {
+      0% {
+        top: 28px;
+        left: 28px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        top: -1px;
+        left: -1px;
+        width: 58px;
+        height: 58px;
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <script src="%UNITY_WEBGL_LOADER_URL%"></script>
+  <script>
+    function UpdateLoading(gameInstance, progress){
+      if (!gameInstance.Module) return;
+
+      if (!gameInstance.progress) {
+        gameInstance.progress = document.createElement('div');
+        gameInstance.progress.id = 'loading';
+
+        gameInstance.progress.ripple = document.createElement('div');
+        gameInstance.progress.ripple.className = 'lds-ripple';
+
+        gameInstance.progress.ripple.one = document.createElement('div');
+        gameInstance.progress.ripple.two = document.createElement('div');
+
+        gameInstance.progress.ripple.appendChild(gameInstance.progress.ripple.one);
+        gameInstance.progress.ripple.appendChild(gameInstance.progress.ripple.two);
+        gameInstance.progress.appendChild(gameInstance.progress.ripple);
+        gameInstance.container.appendChild(gameInstance.progress);
+      }
+      
+      if (progress == 1) {
+        gameInstance.progress.style.display = 'none';
+      }
+    }
+  </script>
+  <script>
+    var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", { onProgress: UpdateLoading });
+  </script> 
+</head>
+
+<body>
+  <section class="game">
+    <header>
+      <h1>%UNITY_WEB_NAME%</h1>
+    </header>
+
+    <div id="gameContainer"></div>
+
+    <footer>
+      <div class="message">
+        <span>v%UNITY_CUSTOM_VERSION%</span> &middot; <a href="https://www.sacredseedstudio.com">Sacred Seed Studio</a>
+      </div>
+      <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)" title="Toggle fullscreen">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100">
+          <g transform="translate(0,-197)" id="layer1">
+            <path id="path825" d="m 52.509036,233.66065 10.830321,10.83032 10.830322,-10.83032 10.83032,10.83032 V 212 H 52.509036 l 10.830321,10.83032 z"
+              style="stroke:none;stroke-width:0.57310444px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+            <path style="stroke:none;stroke-width:0.57310444px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 47.490964,260.33935 36.660644,249.50903 25.83032,260.33935 15,249.50903 V 282 h 32.490964 l -10.83032,-10.83032 z"
+              id="path827" />
+          </g>
+        </svg>
+      </div>
+    </footer>
+  </section>
+</body>
+
+</html>
