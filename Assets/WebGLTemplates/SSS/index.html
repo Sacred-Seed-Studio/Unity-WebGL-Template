@@ -30,6 +30,7 @@
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
+      z-index: 10;
     }
   
     #gameContainer {
@@ -65,6 +66,37 @@
   
     .fullscreen svg g path {
       fill: #DADBE8;
+    }
+
+    .share-wrap {
+      position: absolute;
+      bottom: 0.25rem;
+      text-align: center;
+      width: 100%;
+    }
+    .share {
+      text-align: center;
+    }
+    .share h4 {
+      margin: 0;
+    }
+    .share a .google,
+    .share a .reddit {
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      background-color: #DC4E41;
+    }
+    .share a .google svg,
+    .share a .reddit svg {
+      width: 24px;
+    }
+    .share a .reddit {
+      background-color: #EF7E00;
+    }
+    .share a svg {
+      width: 48px;
+      height: 48px;
     }
 
     #loading {
@@ -165,6 +197,50 @@
         </svg>
       </div>
     </footer>
+  </section>
+  <section class="share-wrap">
+    <div class="share">
+      <h4>Share this!</h4>
+      <a href="https://twitter.com/intent/tweet?text=Sometext&amp;url=https://www.gameurl.com/game&amp;via=twitteraccount"
+        target="_blank" title="Twitter">
+        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <title>Twitter</title>
+          <g fill="none" fill-rule="evenodd">
+            <path d="M.106.183h55.127V55.31H.106V.183z" fill="#00ACED"></path>
+            <path d="M37.09 21.016c-.728.352-1.504.58-2.325.685.837-.538 1.48-1.387 1.784-2.404-.784.497-1.65.852-2.575 1.06-.735-.85-1.79-1.38-2.95-1.38-2.234 0-4.045 1.946-4.045 4.354 0 .338.035.673.102.988-3.355-.174-6.34-1.914-8.336-4.544-.346.642-.545 1.388-.545 2.19 0 1.506.714 2.848 1.8 3.617-.663-.026-1.287-.21-1.832-.54v.06c0 2.105 1.395 3.862 3.245 4.27-.34.097-.698.143-1.07.143-.258 0-.505-.018-.755-.078.513 1.737 2.008 2.998 3.777 3.023-1.385 1.174-3.128 1.864-5.023 1.864-.328 0-.65-.02-.966-.06 1.79 1.24 3.912 1.964 6.2 1.964 7.44 0 11.51-6.638 11.51-12.39 0-.186-.004-.372-.013-.558.79-.623 1.476-1.39 2.018-2.262"
+              fill="#FFF"></path>
+          </g>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gameurl.com/game" target="_blank" title="Facebook">
+        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <title>Facebook</title>
+          <g fill="none" fill-rule="evenodd">
+            <path d="M.32.183h55.127V55.31H.32V.183z" fill="#3B5998"></path>
+            <path d="M32.446 24.287h-3.108V22.25c0-.766.507-.945.865-.945h2.192V17.94l-3.02-.01c-3.352 0-4.114 2.508-4.114 4.114v2.243h-1.938v3.467h1.94v9.81h4.076v-9.81h2.75l.358-3.467"
+              fill="#FFF"></path>
+          </g>
+        </svg>
+      </a>
+      <a href="https://plus.google.com/share?url=https://www.gameurl.com/game" target="_blank" title="Google+">
+        <div class="google">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414" fill="white">
+            <g>
+              <path d="M5.09 7.273v1.745H7.98c-.116.75-.873 2.197-2.887 2.197-1.737 0-3.155-1.44-3.155-3.215S3.353 4.785 5.09 4.785c.99 0 1.652.422 2.03.786l1.382-1.33c-.887-.83-2.037-1.33-3.41-1.33C2.275 2.91 0 5.184 0 8s2.276 5.09 5.09 5.09c2.94 0 4.888-2.065 4.888-4.974 0-.334-.036-.59-.08-.843H5.09zM16 7.273h-1.455V5.818H13.09v1.455h-1.454v1.454h1.455v1.455h1.455V8.727H16"></path>
+            </g>
+          </svg>
+        </div>
+      </a>
+      <a href="https://reddit.com/submit/?url=https://www.gameurl.com/game&amp;title=youttitle"
+        target="_blank" title="Reddit">
+        <div class="reddit">
+          <svg viewBox="0 0 32 32">
+            <path stroke="none" fill="white" d="M8 20c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2s-2-0.895-2-2zM20 20c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2s-2-0.895-2-2zM20.097 24.274c0.515-0.406 1.262-0.317 1.668 0.198s0.317 1.262-0.198 1.668c-1.434 1.13-3.619 1.86-5.567 1.86s-4.133-0.73-5.567-1.86c-0.515-0.406-0.604-1.153-0.198-1.668s1.153-0.604 1.668-0.198c0.826 0.651 2.46 1.351 4.097 1.351s3.271-0.7 4.097-1.351zM32 16c0-2.209-1.791-4-4-4-1.504 0-2.812 0.83-3.495 2.057-2.056-1.125-4.561-1.851-7.29-2.019l2.387-5.36 4.569 1.319c0.411 1.167 1.522 2.004 2.83 2.004 1.657 0 3-1.343 3-3s-1.343-3-3-3c-1.142 0-2.136 0.639-2.642 1.579l-5.091-1.47c-0.57-0.164-1.173 0.116-1.414 0.658l-3.243 7.282c-2.661 0.187-5.102 0.907-7.114 2.007-0.683-1.227-1.993-2.056-3.496-2.056-2.209 0-4 1.791-4 4 0 1.635 0.981 3.039 2.387 3.659-0.252 0.751-0.387 1.535-0.387 2.341 0 5.523 6.268 10 14 10s14-4.477 14-10c0-0.806-0.134-1.589-0.387-2.34 1.405-0.62 2.387-2.025 2.387-3.66zM27 5.875c0.621 0 1.125 0.504 1.125 1.125s-0.504 1.125-1.125 1.125-1.125-0.504-1.125-1.125 0.504-1.125 1.125-1.125zM2 16c0-1.103 0.897-2 2-2 0.797 0 1.487 0.469 1.808 1.145-1.045 0.793-1.911 1.707-2.552 2.711-0.735-0.296-1.256-1.016-1.256-1.856zM16 29.625c-6.42 0-11.625-3.414-11.625-7.625s5.205-7.625 11.625-7.625c6.42 0 11.625 3.414 11.625 7.625s-5.205 7.625-11.625 7.625zM28.744 17.856c-0.641-1.003-1.507-1.918-2.552-2.711 0.321-0.676 1.011-1.145 1.808-1.145 1.103 0 2 0.897 2 2 0 0.84-0.52 1.56-1.256 1.856z"></path>
+          </svg>
+        </div>
+      </a>
+    </div>
   </section>
 </body>
 
