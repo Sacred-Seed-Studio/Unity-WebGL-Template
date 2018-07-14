@@ -50,6 +50,11 @@
     .fullscreen {
       float: right;
       height: 35px;
+      display: none;
+    }
+
+    .loaded .fullscreen {
+      display: initial;
     }
   
     .fullscreen svg {
@@ -128,6 +133,7 @@
       
       if (progress == 1) {
         gameInstance.progress.style.display = 'none';
+        document.body.className = 'loaded';
       }
     }
   </script>
